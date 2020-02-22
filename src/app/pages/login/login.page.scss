@@ -1,0 +1,43 @@
+.app-logo-login{
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+}
+
+.app-input-code{
+    width: 50px !important;
+    margin-inline-end: 2px;
+}
+
+.app-input-number{
+    border: solid 1px #999;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.app-input-thumbnail {
+    margin-inline-end: 5px;
+}
+
+.app-input-thumbnail img {
+    margin-top: 8px !important;
+    height: 40px;
+}
+
+.app-input-group,
+.app-text-botton{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.app-text-botton{
+    margin-top: 50px;
+    color: #ffffff;
+    font-weight: lighter;
+}
+
+.app-input-button{
+    height: 50px;
+    //--box-shadow: none;
+}

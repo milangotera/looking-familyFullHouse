@@ -1,0 +1,13 @@
+<ion-content padding>
+  <ion-list lines="none">
+    <ion-item *ngFor="let zone of zones" (click)="closeModal(zone)">
+      <ion-thumbnail slot="start">
+        <img src="{{zone.flag}}">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{zone.name}}</h2>
+      </ion-label>
+      <p slot="end">+{{zone.callingCodes[0]}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

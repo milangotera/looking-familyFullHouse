@@ -24,3 +24,14 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.app-background{
+    //--background: url('asset/img/bg.png') 100% 100% no-repeat;
+    --background: none;
+    background: url('/assets/img/bg.png') no-repeat;
+    background-size: 100% 100%;
+}
+
+.app-modal-countries{
+    padding: 20px;
+}
