@@ -12,7 +12,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { CountriesPageModule } from './modal/countries/countries.module';
+import { CodePageModule } from './modal/code/code.module';
+
 import { HttpClientModule } from '@angular/common/http';
+
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,12 +27,14 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     IonicStorageModule.forRoot(),
     CountriesPageModule,
+    CodePageModule,
     HttpClientModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    ScreenOrientation
   ],
   bootstrap: [AppComponent]
 })

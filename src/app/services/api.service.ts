@@ -14,9 +14,10 @@ export class ApiService {
 
   }
 
-  checkPhone() {
+  checkPhone(phone) {
+    const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
     return new Promise(resolve => {
-      this.http.get(`${this.apiUrl}/check-phone`).subscribe(data => {
+      this.http.post(`${this.apiUrl}/check-phone`, { phone: phone }, { headers: headers }).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

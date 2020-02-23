@@ -1,0 +1,30 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title  class="ion-text-center">Ingresa tu c&oacute;digo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="app-input-group">
+    <ion-row class="app-row-button">
+      <ion-col size="12">
+        <ion-input #fiel0 (ionFocus)="resetCode(0)" class="app-input-number" type="number" [(ngModel)]="code[0]" (input)="setCode($event, 0)" style="margin-left: 2%;"></ion-input>
+        <ion-input #fiel1 (ionFocus)="resetCode(1)" class="app-input-number" type="number" [(ngModel)]="code[1]" (input)="setCode($event, 1)"></ion-input>
+        <ion-input #fiel2 (ionFocus)="resetCode(2)" class="app-input-number" type="number" [(ngModel)]="code[2]" (input)="setCode($event, 2)"></ion-input>
+        <ion-input #fiel3 (ionFocus)="resetCode(3)" class="app-input-number" type="number" [(ngModel)]="code[3]" (input)="setCode($event, 3)"></ion-input>
+        <ion-input #fiel4 (ionFocus)="resetCode(4)" class="app-input-number" type="number" [(ngModel)]="code[4]" (input)="setCode($event, 4)"></ion-input>
+        <ion-input #fiel5 (ionFocus)="resetCode(5)" class="app-input-number" type="number" [(ngModel)]="code[5]" (input)="setCode($event, 5)"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row class="app-row-button">
+      <ion-col size="12">
+        <ion-button #fiel4 [disabled]="!code[0] || !code[1] || !code[2] || !code[3] || !code[4] || !code[5]" expand="full" color="warning" shape="round" fill="solid" class="app-input-button" (click)="modalCode()">
+          VERIFICAR C&Oacute;DIGO SMS
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-img class="app-logo-login" src="assets/img/logo.png"></ion-img>
+  
+</ion-content>

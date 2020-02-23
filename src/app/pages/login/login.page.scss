@@ -11,7 +11,7 @@
 }
 
 .app-input-number{
-    border: solid 1px #999;
+    border: solid 1px #d7d8da;
     padding-left: 10px !important;
     padding-right: 10px !important;
 }
@@ -32,12 +32,18 @@
 }
 
 .app-text-botton{
-    margin-top: 50px;
     color: #ffffff;
     font-weight: lighter;
+    position: absolute;
+    bottom: 50px;
 }
 
 .app-input-button{
     height: 50px;
     //--box-shadow: none;
+}
+
+.app-row-button{
+    padding-left: 10px;
+    padding-right: 10px;
 }

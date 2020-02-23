@@ -10,19 +10,19 @@
             N&uacute;mero de tel&eacute;fono
           </ion-label>
         </ion-item-divider>
-        <ion-item lines="none" style="background: none;">
+        <ion-item lines="none" style="background: none;" [disabled]="disabled">
           <ion-thumbnail slot="start" class="app-input-thumbnail" (click)="selectCountries()">
             <img src="{{zoneSelect.flag}}">
           </ion-thumbnail>
           <p slot="start" class="app-input-code" (click)="selectCountries()">+{{zoneSelect.callingCodes[0]}}</p>
-          <ion-input class="app-input-number" type="text" value=""></ion-input>
+          <ion-input class="app-input-number" type="number" [(ngModel)]="phone" (input)="setPhone($event.target.value)"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row class="app-row-button">
       <ion-col size="12">
-        <ion-button expand="full" color="warning" fill="solid" class="app-input-button" no-border no-shadow>
-          <ion-icon slot="icon-only" name="call"></ion-icon> VERIFICAR N&Uacute;MERO DE TEL&Eacute;FONO
+        <ion-button [disabled]="!phone || disabled" expand="full" color="warning" shape="round" fill="solid" class="app-input-button" (click)="checkPhone()">
+          {{btn}}
         </ion-button>
       </ion-col>
     </ion-row>
@@ -30,7 +30,7 @@
 
   <ion-grid class="app-text-botton">
     <ion-row>
-      <ion-col size="12" class="ion-text-justify">
+      <ion-col size="12" class="ion-text-center">
         <p >Al tocar verificar n&uacute;mero de tel&eacute;fono, se te enviar&aacute; un c&oacute;digo por SMS para que confirmes tu identidad.</p>
       </ion-col>
     </ion-row>
