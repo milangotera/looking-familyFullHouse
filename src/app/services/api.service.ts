@@ -16,18 +16,30 @@ export class ApiService {
 
   checkPhone(phone) {
     const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       this.http.post(`${this.apiUrl}/check-phone`, { phone: phone }, { headers: headers }).subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        reject(err);
       });
     });
   }
 
-  loginPhone(data) {
+  logout(token) {
+    const headers = new HttpHeaders({ 'Content-Type' :'application/json; charset=utf-8', 'Authorization': `Bearer ${token}` });
     return new Promise((resolve, reject) => {
-      this.http.post(`${this.apiUrl}/login-phone`, JSON.stringify(data))
+      this.http.get(`${this.apiUrl}/logout`, { headers: headers }).subscribe(data => {
+        resolve(data);
+      }, err => {
+        reject(err);
+      });
+    });
+  }
+
+  signin(data) {
+    const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
+    return new Promise((resolve, reject) => {
+      this.http.post(`${this.apiUrl}/signin`, { phone: data.phone, firstname: data.firstname, lastname: data.lastname }, { headers: headers })
         .subscribe(res => {
           resolve(res);
         }, (err) => {
@@ -36,14 +48,93 @@ export class ApiService {
     });
   }
 
-  getProfile() {
-    return new Promise(resolve => {
-      this.http.get(`${this.apiUrl}/check-phone`,{
-        headers: new HttpHeaders().set('Authorization', 'my-token-de-autoriazación'),
-      }).subscribe(data => {
+  invite(token, data) {
+    const headers = new HttpHeaders({ 'Content-Type' :'application/json; charset=utf-8', 'Authorization': `Bearer ${token}` });
+    return new Promise((resolve, reject) => {
+      this.http.post(`${this.apiUrl}/invite`, { phone: data.phone, firstname: data.firstname, lastname: data.lastname }, { headers: headers })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  change(token, data) {
+    const headers = new HttpHeaders({ 'Content-Type' :'application/json; charset=utf-8', 'Authorization': `Bearer ${token}` });
+    return new Promise((resolve, reject) => {
+      this.http.put(`${this.apiUrl}/invite`, { id: data.id, phone: data.phone, firstname: data.firstname, lastname: data.lastname }, { headers: headers })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  family(token) {
+    const headers = new HttpHeaders({ 'Content-Type' :'application/json; charset=utf-8', 'Authorization': `Bearer ${token}` });
+    return new Promise((resolve, reject) => {
+      this.http.get(`${this.apiUrl}/family`, { headers: headers })
+        .subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  loginPhone(phone) {
+    const headers = new HttpHeaders({'Content-Type':'application/json; charset=utf-8'});
+    return new Promise((resolve, reject) => {
+      this.http.post(`${this.apiUrl}/login-phone`, { phone: phone }, { headers: headers }).subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+    });
+  }
+
+  inviteSuccess(token, id) {
+    const headers = new HttpHeaders({ 'Content-Type' :'application/json; charset=utf-8', 'Authorization': `Bearer ${token}` });
+    return new Promise((resolve, reject) => {
+      this.http.post(`${this.apiUrl}/success`, { id: id } , { headers: headers }).subscribe(data => {
         resolve(data);
       }, err => {
-        console.log(err);
+        reject(err);
+      });
+    });
+  }
+
+  inviteDanger(token, id) {
+    const headers = new HttpHeaders({ 'Content-Type' :'application/json; charset=utf-8', 'Authorization': `Bearer ${token}` });
+    return new Promise((resolve, reject) => {
+      this.http.put(`${this.apiUrl}/success`, { id: id } , { headers: headers }).subscribe(data => {
+        resolve(data);
+      }, err => {
+        reject(err);
+      });
+    });
+  }
+
+  getProfile(token) {
+    const headers = new HttpHeaders({ 'Content-Type' :'application/json; charset=utf-8', 'Authorization': `Bearer ${token}` });
+    return new Promise((resolve, reject) => {
+      this.http.get(`${this.apiUrl}/profile`, { headers: headers }).subscribe(data => {
+        resolve(data);
+      }, err => {
+        reject(err);
+      });
+    });
+  }
+
+  putProfile(token, data) {
+    const headers = new HttpHeaders({ 'Content-Type' :'application/json; charset=utf-8', 'Authorization': `Bearer ${token}` });
+    return new Promise((resolve, reject) => {
+      this.http.put(`${this.apiUrl}/profile`, data , { headers: headers }).subscribe(data => {
+        resolve(data);
+      }, err => {
+        reject(err);
       });
     });
   }

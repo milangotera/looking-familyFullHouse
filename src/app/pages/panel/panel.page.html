@@ -1,9 +1,59 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>panel</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="app-background">
+  <div class="app-panel-house">
+    <div class="app-panel-1">
+      <div class="app-panel-content" [ngClass]="{ 'app-panel-success': family[0].status }">
+        <div class="app-img">
+          <ion-img class="app-img-radius" src="{{family[0].profile}}"></ion-img>
+        </div>
+        <div class="app-panel-name">{{family[0].firstname}}</div>
+      </div>
+    </div>
+    <div class="app-panel-2">
+      <div class="app-panel-content app-left" [ngClass]="{ 'app-panel-success': family[1].status }" (click)="showProfile(1)">
+        <div class="app-img">
+          <ion-img src="{{family[1].profile}}"></ion-img>
+        </div>
+        <div class="app-panel-name">{{family[1].firstname}}</div>
+      </div>
+      <div class="app-panel-content app-right" [ngClass]="{ 'app-panel-success': family[2].status }" (click)="showProfile(2)">
+        <div class="app-img">
+          <ion-img src="{{family[2].profile}}"></ion-img>
+        </div>
+        <div class="app-panel-name">{{family[2].firstname}}</div>
+      </div>
+    </div>
+    <div class="app-panel-3">
+      <div class="app-panel-content app-left" [ngClass]="{ 'app-panel-success': family[3].status }" (click)="showProfile(3)">
+        <div class="app-img">
+          <ion-img src="{{family[3].profile}}"></ion-img>
+        </div>
+        <div class="app-panel-name">{{family[3].firstname}}</div>
+      </div>
+      <div class="app-panel-content app-left" [ngClass]="{ 'app-panel-success': family[4].status }" (click)="showProfile(4)">
+        <div class="app-img">
+          <ion-img src="{{family[4].profile}}"></ion-img>
+        </div>
+        <div class="app-panel-name">{{family[4].firstname}}</div>
+      </div>
+      <div class="app-panel-content app-right" [ngClass]="{ 'app-panel-success': family[6].status }" (click)="showProfile(6)">
+        <div class="app-img">
+          <ion-img src="{{family[6].profile}}"></ion-img>
+        </div>
+        <div class="app-panel-name">{{family[6].firstname}}</div>
+      </div>
+      <div class="app-panel-content app-right" [ngClass]="{ 'app-panel-success': family[5].status }" (click)="showProfile(5)">
+        <div class="app-img">
+          <ion-img src="{{family[5].profile}}"></ion-img>
+        </div>
+        <div class="app-panel-name">{{family[5].firstname}}</div>
+      </div>
+    </div>
 
-<ion-content>
+  </div>
+
+  <ion-img  src="assets/img/panel.png" style="margin: auto; width: 90%;"></ion-img>
 
 </ion-content>
+
+<app-tab></app-tab>
+

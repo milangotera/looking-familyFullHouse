@@ -1,0 +1,27 @@
+<ion-content class="app-background">
+  <div class="app-panel-house">
+    <div class="app-panel-1">
+      <div class="app-panel-content" style="border: solid 8px #FFFFFF; padding: 0px; margin-top: 60px;">
+        <div class="app-img">
+          <ion-img  src="assets/img/logo-panel.png"></ion-img>
+        </div>
+      </div>
+      <br>
+      <ion-img src="assets/img/bienvenida.png" style="width: 100%;"></ion-img>
+      <div class="app-facebook-connect" style="margin-top: 10px;" *ngIf="profileData.member == false && disabled == false">
+        <ion-button color="primary" (click)="payData()" style="width: 150px;">PAGAR AHORA</ion-button>
+      </div>
+    </div>
+  </div>
+
+  <ion-img  src="assets/img/proceso.png" (click)="tooggleModal(true)"></ion-img>
+
+  <div class="bg-modal" *ngIf="modal" (click)="tooggleModal(false)">
+    <img class="bg-footer-img" src="assets/img/publicidad_footer.jpg">
+    <ion-icon ios="ios-close" md="md-close"></ion-icon>
+  </div>
+
+</ion-content>
+
+<app-tab></app-tab>
+

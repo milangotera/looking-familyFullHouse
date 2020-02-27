@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "600798268480",
+    "firebase_url": "https://looking-apps.firebaseio.com",
+    "project_id": "looking-apps",
+    "storage_bucket": "looking-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600798268480:android:8b1046860b8bff3c8c63a5",
+        "android_client_info": {
+          "package_name": "com.lookingapps.appphone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600798268480-kajjs760fjbi1eokjdudma4e196bl25f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lookingapps.appphone",
+            "certificate_hash": "c9ed8c0365e62773c1986c5fdd5ee6f0ff2e6d50"
+          }
+        },
+        {
+          "client_id": "600798268480-ka48vrtcu7f82623fc843lti4g17h05v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7KEhkTpTbjLH-FRXgXtJ41Ie6bohOmjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600798268480-ka48vrtcu7f82623fc843lti4g17h05v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "600798268480-8k431hfashd9685l0vlqa4jlqf153epv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lookingapss.xMoto"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600798268480:android:c7fe4211ad7f4a238c63a5",
+        "android_client_info": {
+          "package_name": "com.lookingapss.xMoto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600798268480-qtergbnuf20edjr2bi6aejhmof8brf8t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lookingapss.xMoto",
+            "certificate_hash": "e287bb515074075110824f6f2948e0b76ec70c4f"
+          }
+        },
+        {
+          "client_id": "600798268480-ka48vrtcu7f82623fc843lti4g17h05v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7KEhkTpTbjLH-FRXgXtJ41Ie6bohOmjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600798268480-ka48vrtcu7f82623fc843lti4g17h05v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "600798268480-8k431hfashd9685l0vlqa4jlqf153epv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.lookingapss.xMoto"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

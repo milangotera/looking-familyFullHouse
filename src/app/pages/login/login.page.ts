@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, AlertController , ToastController } from '@ionic/angular';
-import { Router, ActivatedRoute } from '@angular/router';
-
+import { ModalController, AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { CountriesPage } from '../../modal/countries/countries.page';
-import { CodePage } from '../../modal/code/code.page';
-
 import { ApiService } from '../../services/api.service';
-import { HelperService } from '../../services/helper.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-login',
@@ -32,11 +29,8 @@ export class LoginPage implements OnInit {
   constructor(
     public modalController: ModalController,
     public api: ApiService,
-    public helper: HelperService,
     public alert : AlertController,
-    public toast: ToastController,
     private router: Router,
-    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -53,14 +47,6 @@ export class LoginPage implements OnInit {
     this.phone = phone;
   }
 
-  async welcomeToast() {
-    const toast = await this.toast.create({
-      message: 'Bienvenido a tu family panel',
-      duration: 2000
-    });
-    toast.present();
-  }
-
   async welcomeConfirm() {
     const alert = await this.alert.create({
       //header: 'Hola!',
@@ -71,28 +57,6 @@ export class LoginPage implements OnInit {
         </p>
         <p class="ion-text-center"><b>¿Deseas crear tu propia Family Full House?</b></p>
       `,
-      /*
-      inputs: [
-        {
-          name: 'phone',
-          type: 'text',
-          value: `+${this.zoneSelect.callingCodes[0]}${this.phone}`,
-          disabled: true
-        },
-        {
-          name: 'firstname',
-          type: 'text',
-          value: this.firstname,
-          placeholder: 'Nombre'
-        },
-        {
-          name: 'lastname',
-          type: 'text',
-          value: this.lastname,
-          placeholder: 'Apellido',
-        },
-      ],
-      */
       buttons: [
         {
           text: 'NO',
@@ -104,8 +68,8 @@ export class LoginPage implements OnInit {
         },
         {
           text: 'SI',
-          handler: () => {
-            this.modalCode(2);
+          handler: (data) => {
+            this.send(2);
           }
         }
       ]
@@ -120,11 +84,11 @@ export class LoginPage implements OnInit {
     this.api.checkPhone(`+${this.zoneSelect.callingCodes[0]}${this.phone}`).then( (res:any) =>{
       this.disabled = false;
       this.btn = `VERIFICAR NÚMERO DE TELÉFONO`;
-      if(res.status == 200){
-        this.welcomeConfirm();
-      }else if(res.status == 403){
-        this.modalCode(1);
-      }
+      this.welcomeConfirm();
+    }).catch( (err) =>{
+      this.disabled = false;
+      this.btn = `VERIFICAR NÚMERO DE TELÉFONO`;
+      this.send(1);
     });
   }
 
@@ -147,26 +111,25 @@ export class LoginPage implements OnInit {
     return await modal.present();
   }
 
-  async modalCode(opcion) {
-    const modal = await this.modalController.create({
-      cssClass: 'app-modal-countries',
-      component: CodePage,
-      componentProps: {
-        "zoneSelect": this.zoneSelect,
-        "firstname": this.firstname,
-        "lastname": this.lastname,
-        "opcion": opcion,
+  send(page){
+    let router = this.router;
+    let phone = `+${this.zoneSelect.callingCodes[0]}${this.phone}`;
+    router.navigateByUrl(`/login-code/${page}/${phone}/tyutyutiutyutyufrytrytderdytdfgfjfhgfhgfdgdgfdsdsgdgfdgd`);
+    /*
+    (<any>window).FirebasePlugin.verifyPhoneNumber(function(credential) {
+      const data: any = credential;
+      console.log(data);
+      const token = data.verificationId;
+      if(data.instantVerification){
+        console.log("instantVerification");
+      }else{
+        console.log("Not instantVerification");
       }
-    });
- 
-    modal.onDidDismiss().then((dataReturned) => {
-      if (typeof dataReturned.data !== 'undefined') {
-        this.zoneSelect = dataReturned.data;
-        console.log(dataReturned);
-      }
-    });
- 
-    return await modal.present();
+      router.navigateByUrl(`/login-code/${page}/${phone}/${token}`);
+    }, function(error) {
+      console.error("Failed to verify phone number: " + JSON.stringify(error));
+    }, phone, 60);
+    */
   }
 
 }

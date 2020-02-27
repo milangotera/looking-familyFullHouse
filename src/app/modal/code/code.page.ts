@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-code',
@@ -7,14 +8,19 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class CodePage implements OnInit {
 
-  @ViewChild('fiel0')  fiel0; 
-  @ViewChild('fiel1')  fiel1; 
-  @ViewChild('fiel2')  fiel2; 
-  @ViewChild('fiel3')  fiel3;
-  @ViewChild('fiel4')  fiel4;
-  @ViewChild('fiel5')  fiel5;  
+  @ViewChild('fiel0', {static: true})  fiel0; 
+  @ViewChild('fiel1', {static: true})  fiel1; 
+  @ViewChild('fiel2', {static: true})  fiel2; 
+  @ViewChild('fiel3', {static: true})  fiel3;
+  @ViewChild('fiel4', {static: true})  fiel4;
+  @ViewChild('fiel5', {static: true})  fiel5;  
 
   code: any = [];
+  @Input() verificationId: string;
+  @Input() option: number;
+  @Input() firstname: string;
+  @Input() lastname: string;
+  @Input() phone: string;
 
   constructor(
   ) {
@@ -48,6 +54,20 @@ export class CodePage implements OnInit {
       }
       event.target.blur();
     }
+  }
+
+  verify(){
+    let signinCredential = firebase.auth.PhoneAuthProvider.credential(
+      this.verificationId, 
+      `${this.code[0]}${this.code[1]}${this.code[2]}${this.code[3]}${this.code[4]}${this.code[5]}`
+    );
+    firebase.auth().signInWithCredential(signinCredential).then( (info) =>{
+      console.log(info);
+      alert("Se ha optenido la informacion");
+    }, (error) => {
+      console.log(error);
+      alert("No se pudo optener la informacion");
+    });
   }
 
   ngOnInit() {

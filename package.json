@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
     "@ionic-native/core": "^5.0.0",
+    "@ionic-native/facebook": "^5.21.6",
     "@ionic-native/geolocation": "^5.21.5",
     "@ionic-native/screen-orientation": "^5.21.6",
     "@ionic-native/splash-screen": "^5.0.0",
@@ -27,10 +28,15 @@
     "@ionic/angular": "^5.0.0",
     "@ionic/storage": "^2.2.0",
     "cordova-android": "^8.1.0",
+    "cordova-plugin-androidx": "^1.0.2",
+    "cordova-plugin-androidx-adapter": "^1.1.0",
+    "cordova-plugin-facebook4": "^6.3.0",
+    "cordova-plugin-firebasex": "^8.0.0",
     "cordova-plugin-screen-orientation": "^3.0.2",
     "cordova-sqlite-storage": "^4.0.0",
     "core-js": "^2.5.4",
     "es6-promise-plugin": "^4.2.2",
+    "firebase": "^7.9.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -76,7 +82,28 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-sqlite-storage": {},
-      "cordova-plugin-screen-orientation": {}
+      "cordova-plugin-screen-orientation": {},
+      "cordova-plugin-firebasex": {
+        "FIREBASE_ANALYTICS_COLLECTION_ENABLED": "true",
+        "FIREBASE_PERFORMANCE_COLLECTION_ENABLED": "true",
+        "FIREBASE_CRASHLYTICS_COLLECTION_ENABLED": "true",
+        "ANDROID_ICON_ACCENT": "#FF00FFFF",
+        "ANDROID_PLAY_SERVICES_TAGMANAGER_VERSION": "17.0.0",
+        "ANDROID_PLAY_SERVICES_AUTH_VERSION": "17.0.0",
+        "ANDROID_FIREBASE_ANALYTICS_VERSION": "17.2.1",
+        "ANDROID_FIREBASE_MESSAGING_VERSION": "20.0.0",
+        "ANDROID_FIREBASE_CONFIG_VERSION": "19.0.3",
+        "ANDROID_FIREBASE_PERF_VERSION": "19.0.1",
+        "ANDROID_FIREBASE_AUTH_VERSION": "19.1.0",
+        "ANDROID_CRASHLYTICS_VERSION": "2.10.1",
+        "ANDROID_CRASHLYTICS_NDK_VERSION": "2.1.1"
+      },
+      "cordova-plugin-facebook4": {
+        "APP_ID": "319020175711507",
+        "APP_NAME": "ionic-login",
+        "FACEBOOK_HYBRID_APP_EVENTS": "false",
+        "FACEBOOK_ANDROID_SDK_VERSION": "5.13.0"
+      }
     },
     "platforms": [
       "android"

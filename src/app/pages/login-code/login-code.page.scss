@@ -1,0 +1,40 @@
+ion-title{
+    font-weight: lighter;
+}
+
+.app-logo-login{
+    margin: auto;
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+}
+
+.app-input-register{
+    border: solid 1px #999;
+    height: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.app-input-button{
+    height: 50px;
+    //--box-shadow: none;
+}
+
+.app-input-number{
+    border: solid 1px #999;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    font-weight: bold;
+    font-size: x-large;
+    width: 15%;
+    margin-left: 1%;
+    float: left;
+}
+
+.app-row-button{
+    padding-left: 10px;
+    padding-right: 10px;
+}

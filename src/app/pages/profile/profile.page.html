@@ -1,0 +1,45 @@
+<ion-content class="app-background">
+
+  <ion-img class="app-logo-login" src="{{profileData.profile}}"></ion-img>
+
+  <div class="app-facebook-connect" *ngIf="!profileData.facebook">
+    <ion-button color="primary" [disabled]="disabled" (click)="loginFacebook()">Conectar facebook</ion-button>
+  </div>
+
+  <div class="app-profile-data">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="profileData.firstname" [disabled]="disabled"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input [(ngModel)]="profileData.lastname" [disabled]="disabled"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Phone</ion-label>
+      <ion-input [(ngModel)]="profileData.phone" disabled="true"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input [(ngModel)]="profileData.email" [disabled]="disabled"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Ciudad</ion-label>
+      <ion-input [(ngModel)]="profileData.city" [disabled]="disabled"></ion-input>
+    </ion-item>
+  </div>
+
+  <div class="app-facebook-connect" style="margin-top: 10px;">
+    <ion-button color="warning" style="width: 180px;" (click)="updateData()" [disabled]="disabled">Actualizar Datos</ion-button>
+  </div>
+
+  <!--
+  <div class="app-facebook-connect" style="margin-top: 10px;">
+    <ion-button color="danger" style="width: 180px;" (click)="removeData()" [disabled]="disabled">Terminar Sesi&oacute;n</ion-button>
+  </div>
+  -->
+
+</ion-content>
+
+<app-tab></app-tab>
+

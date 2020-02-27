@@ -1,0 +1,18 @@
+{
+    "android": {
+        "debug": {
+            "keystore": "key.keystore",
+            "storePassword": "keyxmoto",
+            "alias": "xmoto",
+            "password" : "keyxmoto",
+            "keystoreType": ""
+        },
+        "release": {
+            "keystore": "key.keystore",
+            "storePassword": "keyxmoto",
+            "alias": "xmoto",
+            "password" : "keyxmoto",
+            "keystoreType": ""
+        }
+    }
+}

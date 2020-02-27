@@ -1,0 +1,41 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-title class="ion-text-center" style="color: #4a007d;">
+    Datos del invitado
+  </ion-title>
+
+  <ion-img class="app-logo-login" src="assets/img/profile.png"></ion-img>
+
+  <ion-item class="app-corte">
+    <ion-label position="stacked">Nombre</ion-label>
+    <ion-input [(ngModel)]="inviteData.firstname" [disabled]="disabled"></ion-input>
+  </ion-item>
+  <span class="app-span-error" *ngIf="errorData.firstname">{{errorData.firstname}}</span>
+  
+  <ion-item class="app-corte">
+    <ion-label position="stacked">Apellido</ion-label>
+    <ion-input [(ngModel)]="inviteData.lastname" [disabled]="disabled"></ion-input>
+  </ion-item>
+  <span class="app-span-error" *ngIf="errorData.lastname">{{errorData.lastname}}</span>
+  
+  <ion-item class="app-corte">
+    <ion-label position="stacked">Tel&eacute;fono</ion-label>
+    <ion-input [(ngModel)]="inviteData.phone" [disabled]="disabled"></ion-input>
+  </ion-item>
+  <span class="app-span-error" *ngIf="errorData.phone">{{errorData.phone}}</span>
+
+  <div class="app-facebook-connect" style="margin-top: 10px;">
+    <ion-button color="warning" (click)="sendData()" [disabled]="disabled">Invitar</ion-button>
+  </div>
+
+</ion-content>

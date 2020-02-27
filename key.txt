@@ -1,0 +1,14 @@
+keytool -genkey -v -keystore key.keystore -alias xmoto -keyalg RSA -keysize 2048 -validity 10000
+
+keytool -list -v -alias xmoto -keystore key.keystore
+
+keytool -exportcert -alias xmoto -keystore key.keystore | openssl sha1 -binary | openssl base64
+
+
+      
+keytool -exportcert -alias androiddebugkey -keystore "C:\Users\Milan\.android\debug.keystore" | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" sha1 -binary | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" base64
+      
+
+      
+keytool -exportcert -alias androiddebugkey -keystore "C:\Users\Milan\.android\debug.keystore" | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" sha1 -binary | "PATH_TO_OPENSSL_LIBRARY\bin\openssl" base64
+      
